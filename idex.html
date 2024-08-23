@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Gestão</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela de Login do Administrador -->
+    <div class="login-container" id="admin-login">
+        <img src="logo.png" alt="Logo">
+        <h2>Plataforma de Gestão Administrativa e Pedagógica</h2>
+        <form id="login-form">
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+            <button type="button" class="support-button">Recuperar Senha</button>
+            <button type="button" class="register-button">Cadastrar</button>
+            <button type="button" id="common-login-button">Entrar como Pessoa Comum</button>
+        </form>
+        <p id="error-message" class="hidden">CPF ou senha incorretos</p>
+    </div>
+
+    <!-- Tela de Login da Pessoa Comum -->
+    <div class="login-container hidden" id="common-login">
+        <img src="logo.png" alt="Logo">
+        <h2>Plataforma de Gestão Administrativa e Pedagógica</h2>
+        <form id="common-login-form">
+            <input type="text" name="cpf" placeholder="CPF" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+            <button type="button" id="admin-login-button">Entrar como Administrador</button>
+        </form>
+        <p id="common-error-message" class="hidden">CPF ou senha incorretos</p>
+    </div>
+
+    <!-- Página de Controle de Faltas -->
+    <div class="container hidden" id="attendance-page">
+        <h1>Gestão de Faltas</h1>
+        <form id="class-form">
+            <label for="class-name">Nome da Turma:</label>
+            <input type="text" id="class-name" required>
+            <label for="class-size">Número de Alunos:</label>
+            <input type="number" id="class-size" required>
+            <button type="submit">Registrar Turma</button>
+        </form>
+        <h2>Lista de Turmas</h2>
+        <ul id="class-list"></ul>
+        <div id="absence-section" class="hidden">
+            <h2>Registrar Faltas</h2>
+            <form id="absence-form">
+                <label for="absent-students">Número de Alunos Faltantes:</label>
+                <input type="number" id="absent-students" required>
+                <button type="submit">Registrar Faltas</button>
+            </form>
+        </div>
+        <h2>Alunos Presentes na Escola: <span id="present-students">0</span></h2>
+        <button id="logout-button">Voltar para Login</button>
+    </div>
+
+    <!-- Página de Resultado para Usuário Comum -->
+    <div class="container hidden" id="user-result-page">
+        <h1>Resumo de Faltas</h1>
+        <h2>Alunos Presentes na Escola: <span id="user-present-students">0</span></h2>
+        <h2>Alunos Faltantes: <span id="user-absent-students">0</span></h2>
+        <button id="common-logout-button">Voltar para Login</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
